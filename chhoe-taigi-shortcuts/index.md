@@ -1,8 +1,6 @@
 # Chhōe Tâigí Shortcuts
 
 
-{chhìkhòaⁿmāi|試看覓}
-
 [Chhōe Tâigí](https://chhoe.taigi.info/) sī chiok hó ēng ê Tâigí sûtián bāngchām
 
 m̄koh khòaⁿ tio̍h bōehiáu ê jī tio̍h ài phahkhui bāngchām
