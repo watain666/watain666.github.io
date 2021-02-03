@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Ubuntu installing Xdebug for PHP7 - That fooling fools ain&#39;t fooling facts.</title><meta name="Description" content="Ubuntu installing Xdebug for PHP7"><meta property="og:title" content="Ubuntu installing Xdebug for PHP7" />
+<meta property="og:description" content="Ubuntu installing Xdebug for PHP7" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://watain666.github.io/zh-tw/ubuntu-16.04-installing-xdebug-for-php7/" />
+<meta property="og:image" content="https://watain666.github.io/zh-tw/ubuntu-16.04-installing-xdebug-for-php7/cover.png"/>
+<meta property="article:published_time" content="2017-05-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-12-22T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://watain666.github.io/zh-tw/ubuntu-16.04-installing-xdebug-for-php7/cover.png"/>
+<meta name="twitter:title" content="Ubuntu installing Xdebug for PHP7"/>
+<meta name="twitter:description" content="Ubuntu installing Xdebug for PHP7"/>
+<meta name="application-name" content="BJB">
+<meta name="apple-mobile-web-app-title" content="BJB"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://watain666.github.io/zh-tw/ubuntu-16.04-installing-xdebug-for-php7/" /><link rel="next" href="https://watain666.github.io/zh-tw/php-upgrade-5.6-to-7.1-got-session_start-fail/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.b9003fe1c39b7110170d78f7ffcdbced4c642b9855af4f0aba998d066506798d.css" integrity="sha256-uQA/4cObcRAXDXj3/8287UxkK5hVr08KupmNBmUGeY0="><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Ubuntu installing Xdebug for PHP7",
+        "inLanguage": "zh-TW",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/watain666.github.io\/zh-tw\/ubuntu-16.04-installing-xdebug-for-php7\/"
+        },"image": [{
+                            "@type": "ImageObject",
+                            "url": "https:\/\/watain666.github.io\/zh-tw\/ubuntu-16.04-installing-xdebug-for-php7\/cover.png",
+                            "width":  1031 ,
+                            "height":  586 
+                        }],"genre": "posts","keywords": "Ubuntu, Xdebug, PHP, XAMPP, PhpStorm","wordcount":  1154 ,
+        "url": "https:\/\/watain666.github.io\/zh-tw\/ubuntu-16.04-installing-xdebug-for-php7\/","datePublished": "2017-05-24T00:00:00+00:00","dateModified": "2020-12-22T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "TiâuÛi Lâu","logo": "https:\/\/watain666.github.io\/images\/avatar\/draw_490.png"},"author": {
+                "@type": "Person",
+                "name": "TiâuÛi Lâu"
+            },"description": "Ubuntu installing Xdebug for PHP7"
+    }
+    </script></head>
+    <body header-desktop="" header-mobile=""><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/zh-tw/" title="That fooling fools ain&#39;t fooling facts.">That fooling fools ain&#39;t fooling facts.</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/zh-tw/about/"><i class='fas fa-user fa-fw'></i> About </a><a class="menu-item" href="/zh-tw/posts/"><i class='fas fa-archive fa-fw'></i> Posts </a><a class="menu-item" href="/zh-tw/tags/"><i class='fas fa-tags fa-fw'></i> Tags </a><a class="menu-item" href="/zh-tw/categories/"><i class='fas fa-folder fa-fw'></i> Categories </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="選擇語言">中文<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/zh-tw/ubuntu-16.04-installing-xdebug-for-php7/" selected>中文</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Type something..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜尋">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/zh-tw/" title="That fooling fools ain&#39;t fooling facts.">That fooling fools ain&#39;t fooling facts.</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Type something..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜尋">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/zh-tw/about/" title=""><i class='fas fa-user fa-fw'></i>About</a><a class="menu-item" href="/zh-tw/posts/" title=""><i class='fas fa-archive fa-fw'></i>Posts</a><a class="menu-item" href="/zh-tw/tags/" title=""><i class='fas fa-tags fa-fw'></i>Tags</a><a class="menu-item" href="/zh-tw/categories/" title=""><i class='fas fa-folder fa-fw'></i>Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切換主題">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="選擇語言">中文<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/zh-tw/ubuntu-16.04-installing-xdebug-for-php7/" selected>中文</option></select>
+                </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目錄</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Ubuntu installing Xdebug for PHP7</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="https://git.io/watain666" title="Author" target="_blank" rel="noopener noreffer author" class="author"><i class="fas fa-user-circle fa-fw"></i>TiâuÛi Lâu</a></span>&nbsp;<span class="post-category">收錄於 <a href="/zh-tw/categories/tutorial/"><i class="far fa-folder fa-fw"></i>Tutorial</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2017/05/24">2017/05/24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;約 1154 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;預計閱讀 3 分鐘&nbsp;</div>
+        </div><div class="featured-image"><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/zh-tw/ubuntu-16.04-installing-xdebug-for-php7/cover.png"
+        data-srcset="/zh-tw/ubuntu-16.04-installing-xdebug-for-php7/cover.png, /zh-tw/ubuntu-16.04-installing-xdebug-for-php7/cover.png 1.5x, /zh-tw/ubuntu-16.04-installing-xdebug-for-php7/cover.png 2x"
+        data-sizes="auto"
+        alt="/zh-tw/ubuntu-16.04-installing-xdebug-for-php7/cover.png"
+        title="Ubuntu installing Xdebug for PHP7" /></div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>目錄</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#開始安裝">開始安裝</a>
+      <ul>
+        <li><a href="#1-匯出你的-php-info-到家目錄">1. 匯出你的 php info 到家目錄</a></li>
+        <li><a href="#2-使用-xdebug-wizard">2. 使用 Xdebug Wizard</a></li>
+        <li><a href="#3-不要完全照著-xdebug-wizard-的說明做">3. 不要完全照著 Xdebug Wizard 的說明做</a></li>
+      </ul>
+    </li>
+    <li><a href="#references-">references :</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>以前在學校學 Java 的時候，老師讓我們使用 Eclipse 這款 IDE 來開發，並一再強調使用 IDE 的 debug 功能和看 error message 有多重要，除此之外，一直以來寫我寫 code 都是用 Sublime / Atom 這種輕量級的 editor 來開發，並沒有深入的去研究 IDE。</p>
+<p>最近發現 PhpStorm 這款 IDE 的公司 JetBrains 有提供免費的<a href="https://www.jetbrains.com/student/" target="_blank" rel="noopener noreffer">學生方案</a>(而且是所有產品)，我就想說可以趁這個機會來試試看看 IDE，便馬上申請並下載了 PhpStorm。</p>
+<p>才想說終於可以開始學習使用 IDE 了，結果要安裝 xdebug 就一直撞牆&hellip;
+不管我怎麼改就是會出現這個錯誤訊息。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Xdebug requires Zend Engine API version 320160303.
+The Zend Engine API version 320151012 which is installed, is newer.
+</code></pre></td></tr></table>
+</div>
+</div><p>浪費了一堆時間，最後發現只是因為我的電腦裡有多個不同版本的 PHP&hellip;
+因此整理一篇筆記，看能不能幫到[需要幫忙的人]^(未來的我)。</p>
+<h2 id="開始安裝">開始安裝</h2>
+<blockquote>
+<p>測試環境</p>
+<p>OS：Ubuntu 16.04 LTS</p>
+<p>PHP開發環境：XAMPP 7.1.1</p>
+</blockquote>
+<h3 id="1-匯出你的-php-info-到家目錄">1. 匯出你的 php info 到家目錄</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">php -i &gt; ~/php-info.txt
+</code></pre></td></tr></table>
+</div>
+</div><p>如果沒辦法匯出就加上 <code>sudo</code> 試試看</p>
+<h3 id="2-使用-xdebug-wizard">2. 使用 Xdebug Wizard</h3>
+<p>打開剛才產生的 php-info.txt，將內容複製到 <a href="https://xdebug.org/wizard.php" target="_blank" rel="noopener noreffer">Xdebug Wizard</a> 並點選 Analyse my phpinfo() output 按鈕
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="wizard_button.png"
+        data-srcset="/zh-tw/ubuntu-16.04-installing-xdebug-for-php7/wizard_button.png, wizard_button.png 1.5x, /zh-tw/ubuntu-16.04-installing-xdebug-for-php7/wizard_button.png 2x"
+        data-sizes="auto"
+        alt="/zh-tw/ubuntu-16.04-installing-xdebug-for-php7/wizard_button.png"
+        title="/zh-tw/ubuntu-16.04-installing-xdebug-for-php7/wizard_button.png" /></p>
+<p>Xdebug Wizard 這個工具可以解析你的PHP版本、Zend API 版本諸如此類安裝所需要的資訊。</p>
+<p>點按鈕後你會得到這樣的說明</p>
+<blockquote>
+<ol>
+<li>
+<p>Download <a href="http://xdebug.org/files/xdebug-2.5.3.tgz" target="_blank" rel="noopener noreffer">xdebug-2.5.3.tgz</a></p>
+</li>
+<li>
+<p>Unpack the downloaded file with <code>tar -xvzf xdebug-2.5.3.tgz</code></p>
+</li>
+<li>
+<p>Run: <code>cd xdebug-2.5.3</code></p>
+</li>
+<li>
+<p>Run: <code>phpize</code> (See the FAQ if you don&rsquo;t have phpize.</p>
+<p>As part of its output it should show:</p>
+</li>
+</ol>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">Configuring <span class="k">for</span>:
+...
+Zend Module Api No:      <span class="m">20160303</span>
+Zend Extension Api No:   <span class="m">320160303</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>If it does not, you are using the wrong phpize. Please follow this <a href="http://xdebug.org/docs/faq#custom-phpize" target="_blank" rel="noopener noreffer">FAQ entry</a> and skip the next step.</p>
+<ol>
+<li>Run: <code>./configure</code></li>
+<li>Run: <code>make</code></li>
+<li>Run: <code>cp modules/xdebug.so /opt/lampp/lib/php/extensions/no-debug-non-zts-20160303</code></li>
+<li>Edit <code>/opt/lampp/etc/php.ini</code> and add the line</li>
+</ol>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">zend_extension</span> <span class="o">=</span> /opt/lampp/lib/php/extensions/no-debug-non-zts-20160303/xdebug.so
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="3-不要完全照著-xdebug-wizard-的說明做">3. 不要完全照著 Xdebug Wizard 的說明做</h3>
+<p>先照著 Xdebug Wizard 說明 1~3 步，然後停一下</p>
+<ol>
+<li>下載 Xdebug</li>
+<li>解壓縮</li>
+<li>進入解壓縮後的資料夾內</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> xdebug-2.5.3
+</code></pre></td></tr></table>
+</div>
+</div><p>再來這步就很重要了，我會一直裝不起來就是死在這</p>
+<p>首先要確認你執行 phpize 是不是在你要佈署的環境</p>
+<ol start="4">
+<li>
+<p>執行 phpize</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">which phpize
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<blockquote>
+<p>回傳結果</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">/usr/bin/phpize
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<p>這意味著我輸入 <code>phpize</code> 的時候是執行 <code>/usr/bin/phpize</code> 的phpize</p>
+<p>但是我要佈署的是 xampp 的 php 才對呀！</p>
+<p>那 xampp 的 phpize 在哪呢？</p>
+<p>如果你不知道 xampp 的 phpize 在哪裡可以問問 [神奇海螺]^(whereis)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">whereis phpize
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>回傳結果</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">phpize:
+/usr/bin/phpize
+/usr/bin/phpize7.0
+/opt/lampp/bin/phpize
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<p>回傳的結果顯示我的系統內有 3 個 phpize，我要使用的是最下面的 xampp 的 phpize</p>
+<p>接著就可以開始說明的第 4 步了，只不過要把 <code>phpize</code> 換成 <code>/opt/lampp/bin/phpize</code></p>
+<div class="details admonition danger open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-skull-crossbones fa-fw"></i>注意！<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">以你的路徑為主，我的路徑可能和你的不一樣</div>
+        </div>
+    </div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">/opt/lampp/bin/phpize
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>回傳結果</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Configuring for:
+PHP Api Version:         20160303
+Zend Module Api No:      20160303
+Zend Extension Api No:   320160303
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<ol start="5">
+<li>configure 它並帶上 php-config 路徑</li>
+</ol>
+<p>如果你不知道 php-config 路徑一樣問 [神奇海螺]^(whereis)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">whereis php-config
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>回傳結果</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">php-config:
+/usr/bin/php-config
+/usr/bin/php-config7.0
+/opt/lampp/bin/php-config
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<p>一樣我要使用的是 xampp 的 php-config</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo ./configure --enable-xdebug --with-php-config<span class="o">=</span>/opt/lampp/bin/php-config
+</code></pre></td></tr></table>
+</div>
+</div><p>結果太長就不附上了</p>
+<ol start="6">
+<li>產生文件</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">make
+</code></pre></td></tr></table>
+</div>
+</div><ol start="7">
+<li>將產生好的文件複製到你要放 xdebug.so 的目錄</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">cp modules/xdebug.so /opt/lampp/lib/php/extensions/no-debug-non-zts-20160303
+</code></pre></td></tr></table>
+</div>
+</div><ol start="8">
+<li>修改 php.ini 在結尾加入這幾行就安裝完成了，現在你可以透過編輯器來 debug 啦！</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[xdebug]
+zend_extension=/opt/lampp/lib/php/extensions/no-debug-non-zts-20160303/xdebug.so
+xdebug.remote_autostart=1
+xdebug.remote_enable=1
+xdebug.remote_host=localhost
+xdebug.remote_port=9000
+xdebug.remote_handler=dbgp
+</code></pre></td></tr></table>
+</div>
+</div><p>&hellip;如果你不知道php.ini在哪裡&hellip;知道該問誰了吧？</p>
+<ol start="9">
+<li>驗收</li>
+</ol>
+<p>再來只要把 Apache Server 重開就可以打完收工啦。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo service apache2 restart
+php -v
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>回傳結果</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">PHP 7.1.1 (cli) (built: Feb  1 2017 01:39:46) ( NTS )
+Copyright (c) 1997-2017 The PHP Group
+Zend Engine v3.1.0, Copyright (c) 1998-2017 Zend Technologies
+   with Xdebug v2.5.3, Copyright (c) 2002-2017, by Derick Rethans
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<p>有看到最後那行 <code>with Xdebug v2.5.3, Copyright (c) 2002-2017, by Derick Rethans</code> 就代表順利完成了。</p>
+<hr>
+<h2 id="references-">references :</h2>
+<ul>
+<li><a href="http://blog.crazyphper.com/?p=3477" target="_blank" rel="noopener noreffer">現在PHP版本那麼多，編譯出屬於自己的xdebug才是王道</a></li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新於 2020/12/22</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/zh-tw/ubuntu-16.04-installing-xdebug-for-php7/index.md" target="_blank">閱讀原始檔</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://watain666.github.io/zh-tw/ubuntu-16.04-installing-xdebug-for-php7/" data-title="Ubuntu installing Xdebug for PHP7" data-via="TiauWeed" data-hashtags="Ubuntu,Xdebug,PHP,XAMPP,PhpStorm"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://watain666.github.io/zh-tw/ubuntu-16.04-installing-xdebug-for-php7/" data-hashtag="Ubuntu"><i class="fab fa-facebook-square fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/zh-tw/tags/ubuntu/">Ubuntu</a>,&nbsp;<a href="/zh-tw/tags/xdebug/">xdebug</a>,&nbsp;<a href="/zh-tw/tags/php/">PHP</a>,&nbsp;<a href="/zh-tw/tags/xampp/">XAMPP</a>,&nbsp;<a href="/zh-tw/tags/phpstorm/">PhpStorm</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-tw/">首頁</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+            <a href="/zh-tw/php-upgrade-5.6-to-7.1-got-session_start-fail/" class="next" rel="next" title="PHP Upgrade 5.6 to 7.1 got session_start fail">PHP Upgrade 5.6 to 7.1 got session_start fail<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">· An independent, 100% carbon neutral site that doesn't track you ·</div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2017 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://git.io/watain666" target="_blank">TiâuÛi Lâu</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到頂部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看留言">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.8/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.136b99bd32b0c00924d0a5f80a946f737c958dc96ed527db1d959c3d229bc4b5.js" integrity="sha256-E2uZvTKwwAkk0KX4CpRvc3yVjclu1SfbHZWcPSKbxLU="></script><script type="text/javascript" src="/lib/lunr/lunr.zhtw.min.1854ea4e989db6f5d192f44b305c3a7512c7dc5249e9f7d01e1581ea49f274c3.js" integrity="sha256-GFTqTpidtvXRkvRLMFw6dRLH3FJJ6ffQHhWB6knydMM="></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"複製到剪貼簿","maxShownLines":10},"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/zh-tw/index.json","lunrLanguageCode":"zh-tw","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":5,"noResultsFound":"沒有找到結果","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.09729ab43fbb7b49c065c597d41bb70983c7852ea77794a00b8f78099b049b43.js" integrity="sha256-CXKatD&#43;7e0nAZcWX1Bu3CYPHhS6nd5SgC494CZsEm0M="></script></body>
+</html>

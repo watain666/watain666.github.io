@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="tai">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>[PHP] PHPBrew Note - That fooling fools ain&#39;t fooling facts.</title><meta name="Description" content="Chiahsī Góa ê kisu̍t Blog, khǹg chi̍tkóa Góa Góa ū chhùbī kap Góa chò ê mi̍hkiāⁿ ê só͘chāi."><meta property="og:title" content="[PHP] PHPBrew Note" />
+<meta property="og:description" content="因為公司測試機上使用的 PHP 版本是 5.4.x 我的開發環境是的用 7.X 版 有時候一個不小心就會用到舊版不支援的 function 為了在 debug 時能夠可以重現測試機的錯誤 並且盡可能避免" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://watain666.github.io/drafts/phpbrew-note/" />
+<meta property="og:image" content="https://watain666.github.io/favicon.png"/>
+<meta property="article:published_time" content="2018-09-28T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-09-28T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://watain666.github.io/favicon.png"/>
+
+<meta name="twitter:title" content="[PHP] PHPBrew Note"/>
+<meta name="twitter:description" content="因為公司測試機上使用的 PHP 版本是 5.4.x 我的開發環境是的用 7.X 版 有時候一個不小心就會用到舊版不支援的 function 為了在 debug 時能夠可以重現測試機的錯誤 並且盡可能避免"/>
+<meta name="application-name" content="BJB">
+<meta name="apple-mobile-web-app-title" content="BJB"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://watain666.github.io/drafts/phpbrew-note/" /><link rel="prev" href="https://watain666.github.io/drafts/sql-note/" /><link rel="next" href="https://watain666.github.io/drafts/poj-font-test/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.b9003fe1c39b7110170d78f7ffcdbced4c642b9855af4f0aba998d066506798d.css" integrity="sha256-uQA/4cObcRAXDXj3/8287UxkK5hVr08KupmNBmUGeY0="><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "[PHP] PHPBrew Note",
+        "inLanguage": "tai",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/watain666.github.io\/drafts\/phpbrew-note\/"
+        },"image": ["https:\/\/watain666.github.io\/images\/Apple-Devices-Preview.png"],"genre": "drafts","wordcount":  1816 ,
+        "url": "https:\/\/watain666.github.io\/drafts\/phpbrew-note\/","datePublished": "2018-09-28T00:00:00+00:00","dateModified": "2018-09-28T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "TiâuÛi Lâu","logo": "https:\/\/watain666.github.io\/images\/avatar\/draw_490.png"},"author": {
+                "@type": "Person",
+                "name": "TiâuÛi Lâu"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="" header-mobile=""><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="That fooling fools ain&#39;t fooling facts.">That fooling fools ain&#39;t fooling facts.</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/about/"><i class='fas fa-user fa-fw'></i> Siāukài </a><a class="menu-item" href="/posts/"><i class='fas fa-archive fa-fw'></i> Bûnchiuⁿ </a><a class="menu-item" href="/tags/"><i class='fas fa-tags fa-fw'></i> Phiauá </a><a class="menu-item" href="/categories/"><i class='fas fa-folder fa-fw'></i> Hunlūi </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="Soánte̍k gígiân">Tâibûn<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/drafts/phpbrew-note/" selected>Tâibûn</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Type something..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Chhau">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Chhenglí">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Ōaⁿ chútê">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="That fooling fools ain&#39;t fooling facts.">That fooling fools ain&#39;t fooling facts.</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Type something..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Chhau">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Chhenglí">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Chhúsiau
+                    </a>
+                </div><a class="menu-item" href="/about/" title=""><i class='fas fa-user fa-fw'></i>Siāukài</a><a class="menu-item" href="/posts/" title=""><i class='fas fa-archive fa-fw'></i>Bûnchiuⁿ</a><a class="menu-item" href="/tags/" title=""><i class='fas fa-tags fa-fw'></i>Phiauá</a><a class="menu-item" href="/categories/" title=""><i class='fas fa-folder fa-fw'></i>Hunlūi</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Ōaⁿ chútê">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="Soánte̍k gígiân">Tâibûn<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/drafts/phpbrew-note/" selected>Tâibûn</option></select>
+                </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="page single special"><h1 class="single-title animated pulse faster">[PHP] PHPBrew Note</h1><div class="content" id="content"><p>因為公司測試機上使用的 PHP 版本是 5.4.x</p>
+<p>我的開發環境是的用 7.X 版</p>
+<p>有時候一個不小心就會用到舊版不支援的 function</p>
+<p>為了在 debug 時能夠可以重現測試機的錯誤</p>
+<p>並且盡可能避免掉一些環境問題導致的錯誤</p>
+<p>所以就打算在開發環境上部屬多個版本的 PHP</p>
+<p>在網路上找了很多方法，最後決定使用現代一點的工具</p>
+<p>也就是 <a href="https://github.com/c9s" target="_blank" rel="noopener noreffer">c9s</a> 大大所開發的 <a href="https://github.com/phpbrew/phpbrew" target="_blank" rel="noopener noreffer">PHPBrew</a> 來解決這個問題</p>
+<p>PHPBrew 除了可以安裝多個版本的 PHP ，並且快速切換之外</p>
+<p>還可以讓 PHP 開發者們像使用簡單的指令來安裝需要的套件</p>
+<p>看是要裝 xdebug 還是 composer 都只需要一行指令就搞定</p>
+<p>再也不需要在看手冊要怎麼裝啦</p>
+<p>也避免碰到一些<a href="https://watain666.github.io/Ubuntu-16.04-installing-Xdebug-for-PHP7/" target="_blank" rel="noopener noreffer">預料外的狀況要排除</a></p>
+<p>不過後來用了才發現 PHPBrew 的坑更大XDD</p>
+<p>但確實是方便好用</p>
+<p>要當個現代的 PHPer 說什麼也要把問題解決才行啊！</p>
+<hr>
+<h3 id="安裝">安裝</h3>
+<blockquote>
+<p>測試環境</p>
+<p>OS：Ubuntu 18.04 LTS</p>
+<p>PHP︰7.2</p>
+</blockquote>
+<p>嘗試了官方手冊，各式各樣的 tutorial</p>
+<p>找到最穩最快速的安裝方法是使用這個安裝腳本</p>
+<script src="https://gist.github.com/watain666/85f6efa58c28495e90286d83bbd9cebb.js"></script>
+<p>但是媽媽說不能隨便相信陌生人</p>
+<p>直接跑網路上來源不明的腳本很危險啊</p>
+<p>所以我們還是先一行一行來安裝比較妥當</p>
+<ol>
+<li>
+<p>先更新你的 Ubuntu</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">sudo apt update
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>安裝 PHPBrew 依賴套件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">sudo apt install wget php build-essential libxml2-dev libxslt1-dev libbz2-dev libcurl4-openssl-dev libcurl4-gnutls-dev libmcrypt-dev libreadline-dev libssl-dev autoconf apache2-dev
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>安裝 PHPBrew</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">wget https://github.com/phpbrew/phpbrew/raw/master/phpbrew
+chmod +x phpbrew
+mv phpbrew /usr/local/bin
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>初始化 PHPBrew Bash Sript 到你的 Shell 環境</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">phpbrew init
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>接著在 .bashrc 或 .zshrc 文件加入這行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[[ -e ~/.phpbrew/bashrc ]] &amp;&amp; source ~/.phpbrew/bashrc
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>建立 curl symbolic link 避免這個已知的 <a href="https://github.com/phpbrew/phpbrew/issues/861" target="_blank" rel="noopener noreffer">bug</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">sudo ln -s /usr/include/x86_64-linux-gnu/curl /usr/include/curl
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>下載並編譯特定版本的 openssl ，以避免 openssl 版本過新導致所導致的 bug</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">wget https://www.openssl.org/source/openssl-1.0.2o.tar.gz
+tar -xzvf openssl-1.0.2o.tar.gz
+pushd openssl-1.0.2o
+./config -fPIC shared --prefix=/usr/local --openssldir=/usr/local/openssl
+make
+make test
+sudo make install
+popd
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>重設編譯 PHP 會需要權限的目錄們</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">sudo chmod oga+rw -R /etc/apache2 /usr/sbin/a2enmod /usr/lib/apache2/modules/ /var/lib/apache2/module/
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>設定編譯 PHP 會用到的共享 openssl 目錄</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>安裝 5.6.38 和 7.2.10 這2個版本的 PHP</p>
+<p>需要 pdo, mysql, openssl, xdebug, apxs2這幾個套件</p>
+<p>如果你不是用 MySQL/MariaDB</p>
+<p>用 PostgreSQL 把 <code>+mysql</code> 替換成 <code>pgsql</code></p>
+<p>用 SQLite 把 <code>+mysql</code> 替換成 <code>sqlite</code></p>
+<p>安裝 PHP 5.6.38, pdo, mysql, openssl, xdebug 2.2.7</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">phpbrew -d install php-5.6.38 +default +pdo +mysql +apxs2 -- --with-openssl=shared
+phpbrew use php-5.6.38
+phpbrew -d ext install openssl
+phpbrew -d ext install xdebug 2.2.7
+</code></pre></td></tr></table>
+</div>
+</div><p>安裝 PHP 7.2.10, pdo, mysql, openssl, xdebug</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">phpbrew -d install php-7.2.10 +default +pdo +mysql +apxs2 -- --with-openssl=shared
+phpbrew use php-7.2.10
+phpbrew -d ext install openssl
+phpbrew -d ext install xdebug
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>安裝完成後把剛才修改權限的目錄們的權限給還原就都安裝完成啦</p>
+</li>
+<li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">sudo find /etc/apache2 /usr/lib/apache2/modules /var/lib/apache2/module/ -type f -exec chmod 644 {} \;
+sudo find /etc/apache2 /usr/lib/apache2/modules /var/lib/apache2/module/ /usr/sbin/a2enmod -type d -exec chmod 755 {} \;
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>我後來在使用 <code>composer install</code> 的時候彈出了一個警告訊息</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../images/PHPBrew-Note/composer-error.png"
+        data-srcset="../images/PHPBrew-Note/composer-error.png, ../images/PHPBrew-Note/composer-error.png 1.5x, ../images/PHPBrew-Note/composer-error.png 2x"
+        data-sizes="auto"
+        alt="../images/PHPBrew-Note/composer-error.png"
+        title="../images/PHPBrew-Note/composer-error.png" /></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"> [Composer\Exception\NoSslException]
+  The openssl extension is required for SSL/TLS protection but is not available.     If you can not enable the openssl
+  extension, you can disable this error, at your own risk, by setting the     &#39;disable-tls&#39; option to true.
+</code></pre></td></tr></table>
+</div>
+</div><p>簡單來說就是說 composer 找不到 openssl</p>
+<p>你可以選擇把這個警告訊息拿掉，但是風險要自行承擔</p>
+<p>但是這樣會把 composer 所有的 https request 改成 http</p>
+<p>這樣的作法不僅影響安全性也不健康</p>
+<p>爬文發現原來是因為 PHP 預設不會主動啟用 openssl</p>
+<p>所以我們必須把它手動啟用才行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">phpbrew config
+</code></pre></td></tr></table>
+</div>
+</div><p>搜尋<code>extension=openssl</code></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../images/PHPBrew-Note/phpbrew-config-openssl.png"
+        data-srcset="../images/PHPBrew-Note/phpbrew-config-openssl.png, ../images/PHPBrew-Note/phpbrew-config-openssl.png 1.5x, ../images/PHPBrew-Note/phpbrew-config-openssl.png 2x"
+        data-sizes="auto"
+        alt="../images/PHPBrew-Note/phpbrew-config-openssl.png"
+        title="../images/PHPBrew-Note/phpbrew-config-openssl.png" /></p>
+<p>把前面的分號也就是註解拿掉存檔</p>
+<p>重啟 Apache2 就沒問題囉</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">sudo systemctl restart apache2
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<hr>
+<h3 id="切換-apache2-使用的-php-版本">切換 Apache2 使用的 PHP 版本</h3>
+<p>使用 <code>phpbrew switch/use</code> 只會更改 CLI 使用的 PHP</p>
+<p>Apache2 所使用的 PHP 必須手動更新才行</p>
+<p>剛才用 PHPBrew 安裝 PHP 的時候加上的 +apxs2</p>
+<p>就是為了在編譯的時候就幫我們產生好 Apache2 的 modules 檔</p>
+<p>我們只需要手動選擇要載入的 modules 檔就行了</p>
+<p>但是這樣切換起來很麻煩啊，這種繁瑣的工作還是要用腳本解決才行</p>
+<p>找到了<a href="https://stackoverflow.com/questions/20584156/tell-apache-to-use-a-specific-php-version-installed-using-phpbrew" target="_blank" rel="noopener noreffer">這篇</a>下面的 2 個回應的腳本都寫很不錯</p>
+<p>我就把它合併成一支腳本用了</p>
+<script src="https://gist.github.com/watain666/43482f6599d74fcffd34ed711e85e0f6.js"></script>
+<p>執行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">bash phpbrewswitch
+</code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../images/PHPBrew-Note/phpbrewswitch.png"
+        data-srcset="../images/PHPBrew-Note/phpbrewswitch.png, ../images/PHPBrew-Note/phpbrewswitch.png 1.5x, ../images/PHPBrew-Note/phpbrewswitch.png 2x"
+        data-sizes="auto"
+        alt="../images/PHPBrew-Note/phpbrewswitch.png"
+        title="../images/PHPBrew-Note/phpbrewswitch.png" /></p>
+<p>一開始會列出你有安裝的版本，前面有 * 字號的是現在正在使用的版本</p>
+<p>輸入版本號最前面的數字後按下 enter 就會開始幫你做版本切換</p>
+<p>因為設定 Apache2 會需要 root 權限，所以會跟你要 root 密碼，這時候請放心交給它吧</p>
+<p>最後看到 <code>Restart apache2 success!</code> 就代表切換完成啦</p>
+<p>Apache2 和 Shell 的 PHP 都會一併切換</p>
+<p>不過由於我的 Shell 用的是 zsh</p>
+<p><code>phpbrew switch</code> 是在 bash script 中切換的</p>
+<p>所以要重新載入 zshrc 後 CLI 的 PHP 才會切換完成</p>
+<p>不過我主要目的是要切換 Apache2 的 PHP 所以這個小問題沒什麼影響</p>
+<p>(Shell 使用 bash 的朋友不會碰到這個問題哦)</p>
+<hr>
+<h3 id="curl-問題">curl 問題</h3>
+<h4 id="安裝-php-碰到的狀況">安裝 php 碰到的狀況</h4>
+<p>今天安裝不同版本的時候又碰到另一個錯誤啦</p>
+<p>當我執行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">phpbrew -d install php-5.4.45 +default +pdo +mysql +apxs2 -- --with-openssl=shared
+</code></pre></td></tr></table>
+</div>
+</div><p>跑一跑回傳</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">configure: error: Please reinstall the libcurl distribution -
+
+    easy.h should be in &lt;curl-dir&gt;/include/curl/
+</code></pre></td></tr></table>
+</div>
+</div><p>爬了一下文發現似乎是 PHP 的 bug</p>
+<p>curl 的 symbolic link 我們在安裝的第 6 步已經建立了</p>
+<p>所以只要把 curl 缺的依賴套件 <code>libcurl4-gnutls-dev</code> 補上即可</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">sudo apt-get install libcurl4-gnutls-dev
+</code></pre></td></tr></table>
+</div>
+</div><p>我也把上面的 <code>setup.sh</code> 和安裝流程都補上這個依賴套件了</p>
+<hr>
+<h4 id="安裝-xdebug-碰到的狀況">安裝 xdebug 碰到的狀況</h4>
+<p>執行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">phpbrew ext install xdebug
+</code></pre></td></tr></table>
+</div>
+</div><p>只回傳個這個訊息就什麼都沒了</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Downloading https://pecl.php.net/rest/r/xdebug/stable.txt via curl extension
+</code></pre></td></tr></table>
+</div>
+</div><p>只能從訊息判斷大概是 curl 出了問題</p>
+<p>但是我直接 <code>ping https://pecl.php.net/</code> 跟 <code>curl https://pecl.php.net/</code> 都沒問題啊</p>
+<p>後來爬了手冊發現 phpbrew 可以指定下載方式，既然 <code>crul</code> 不行那就換 <code>wget</code> 試試看</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">phpbrew ext install --downloader wget xdebug
+</code></pre></td></tr></table>
+</div>
+</div><p>&hellip;結果改用 <code>wget</code> 就可以正常安裝了</p>
+<p>安裝 xdebug 後記得還得把遠端除錯給設定好才行</p>
+<p>phpbrew 的 xdebug 設定不在 <code>php.ini</code> 裡面</p>
+<p>要從 <code>xdebug.ini</code> 設定</p>
+<p>不同版本的 PHP 的設定檔也不同</p>
+<p>不知道放在哪的話可以用 <code>locate</code> 來找</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">locate xdebug.ini
+</code></pre></td></tr></table>
+</div>
+</div><p>第一個是預設的，下面的 5.6.38 和 7.2.10 目錄下的就是我們要修改的檔案</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">/home/rexliu/.phpbrew/build/php-7.2.10/ext/xdebug/xdebug.ini
+/home/rexliu/.phpbrew/php/php-5.6.38/var/db/xdebug.ini
+/home/rexliu/.phpbrew/php/php-7.2.10/var/db/xdebug.ini
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">vim ~/.phpbrew/php/php-5.6.38/var/db/xdebug.ini
+</code></pre></td></tr></table>
+</div>
+</div><p>預設只有指定 <code>xdebug.so</code> 檔</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">zend_extension=xdebug.so
+</code></pre></td></tr></table>
+</div>
+</div><p>加上遠端的設定</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">zend_extension=xdebug.so
+xdebug.remote_autostart=1
+xdebug.remote_enable=1
+xdebug.remote_host=localhost
+xdebug.remote_port=9000
+xdebug.remote_handler=dbgp
+</code></pre></td></tr></table>
+</div>
+</div><p>重啟 Apache2 就完成了</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">sudo systemctl restart apache2
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<p>reference :</p>
+<ul>
+<li>
+<p><a href="https://github.com/mongodb/mongo-php-driver/issues/138" target="_blank" rel="noopener noreffer">configure: error: Cannot find OpenSSL&rsquo;s libraries</a></p>
+</li>
+<li>
+<p><a href="https://github.com/phpbrew/phpbrew/issues/826#issuecomment-334173596" target="_blank" rel="noopener noreffer">unable to install php. 5.3.29 getting error</a></p>
+</li>
+<li>
+<p><a href="https://stackoverflow.com/questions/20584156/tell-apache-to-use-a-specific-php-version-installed-using-phpbrew" target="_blank" rel="noopener noreffer">Tell Apache to use a specific PHP version installed using phpbrew</a></p>
+</li>
+<li>
+<p><a href="https://github.com/phpbrew/phpbrew/issues/924" target="_blank" rel="noopener noreffer">Not able to install GD in Ubuntu 17.10</a></p>
+</li>
+<li>
+<p><a href="https://medium.com/%E6%8A%80%E8%A1%93%E5%AE%85%E5%A0%B1/%E4%BD%BF%E7%94%A8phpbrew%E7%AE%A1%E7%90%86php%E7%89%88%E6%9C%AC-4a7d3c845690" target="_blank" rel="noopener noreffer">使用PHPBrew管理PHP版本</a></p>
+</li>
+<li>
+<p><a href="http://goodjack.blogspot.com/2018/06/phpbrew-php.html" target="_blank" rel="noopener noreffer">PHPBrew：編譯 PHP 的各種踩雷紀錄</a></p>
+</li>
+<li>
+<p><a href="https://github.com/phpbrew/phpbrew/issues/861" target="_blank" rel="noopener noreffer">easy.h should be in &lt;curl-dir&gt;/include/curl/</a></p>
+</li>
+<li>
+<p><a href="https://github.com/phpbrew/phpbrew/issues/766#issuecomment-231571657" target="_blank" rel="noopener noreffer">Cannot Install mysql extension</a></p>
+</li>
+</ul>
+</div></div></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">· An independent, 100% carbon neutral site that doesn't track you ·</div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2017 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://git.io/watain666" target="_blank">TiâuÛi Lâu</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Tńg--khì koânténg">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="Khòaⁿ lâuōe">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.8/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Khoppih khì ka tah phō͘á","maxShownLines":10},"comment":{},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":5,"noResultsFound":"Bô chhiau tio̍h","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.09729ab43fbb7b49c065c597d41bb70983c7852ea77794a00b8f78099b049b43.js" integrity="sha256-CXKatD&#43;7e0nAZcWX1Bu3CYPHhS6nd5SgC494CZsEm0M="></script></body>
+</html>

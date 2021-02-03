@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="tai">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>[PHP] Note - That fooling fools ain&#39;t fooling facts.</title><meta name="Description" content="Chiahsī Góa ê kisu̍t Blog, khǹg chi̍tkóa Góa Góa ū chhùbī kap Góa chò ê mi̍hkiāⁿ ê só͘chāi."><meta property="og:title" content="[PHP] Note" />
+<meta property="og:description" content="Array 清除陣列字串頭尾的多餘空白 $test = array_map(&#39;trim&#39;, $test); 清除陣列空值並重新排序 index array_values(array_filter($aArray)); 清除陣列重複值 使用 array_flip 和 array_keys 會比 array_unique 來的快速 array_keys 會重新排序 index array_flip 則不會重新排序 index 範例 1 2" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://watain666.github.io/drafts/php-note/" />
+<meta property="og:image" content="https://watain666.github.io/favicon.png"/>
+<meta property="article:published_time" content="2017-12-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2017-12-05T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://watain666.github.io/favicon.png"/>
+
+<meta name="twitter:title" content="[PHP] Note"/>
+<meta name="twitter:description" content="Array 清除陣列字串頭尾的多餘空白 $test = array_map(&#39;trim&#39;, $test); 清除陣列空值並重新排序 index array_values(array_filter($aArray)); 清除陣列重複值 使用 array_flip 和 array_keys 會比 array_unique 來的快速 array_keys 會重新排序 index array_flip 則不會重新排序 index 範例 1 2"/>
+<meta name="application-name" content="BJB">
+<meta name="apple-mobile-web-app-title" content="BJB"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://watain666.github.io/drafts/php-note/" /><link rel="next" href="https://watain666.github.io/drafts/git-note/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.b9003fe1c39b7110170d78f7ffcdbced4c642b9855af4f0aba998d066506798d.css" integrity="sha256-uQA/4cObcRAXDXj3/8287UxkK5hVr08KupmNBmUGeY0="><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "[PHP] Note",
+        "inLanguage": "tai",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/watain666.github.io\/drafts\/php-note\/"
+        },"image": ["https:\/\/watain666.github.io\/images\/Apple-Devices-Preview.png"],"genre": "drafts","wordcount":  1972 ,
+        "url": "https:\/\/watain666.github.io\/drafts\/php-note\/","datePublished": "2017-12-05T00:00:00+00:00","dateModified": "2017-12-05T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": "TiâuÛi Lâu","logo": "https:\/\/watain666.github.io\/images\/avatar\/draw_490.png"},"author": {
+                "@type": "Person",
+                "name": "TiâuÛi Lâu"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="" header-mobile=""><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('dark' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'dark' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="That fooling fools ain&#39;t fooling facts.">That fooling fools ain&#39;t fooling facts.</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/about/"><i class='fas fa-user fa-fw'></i> Siāukài </a><a class="menu-item" href="/posts/"><i class='fas fa-archive fa-fw'></i> Bûnchiuⁿ </a><a class="menu-item" href="/tags/"><i class='fas fa-tags fa-fw'></i> Phiauá </a><a class="menu-item" href="/categories/"><i class='fas fa-folder fa-fw'></i> Hunlūi </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="Soánte̍k gígiân">Tâibûn<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/drafts/php-note/" selected>Tâibûn</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Type something..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Chhau">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Chhenglí">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Ōaⁿ chútê">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="That fooling fools ain&#39;t fooling facts.">That fooling fools ain&#39;t fooling facts.</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Type something..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Chhau">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Chhenglí">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Chhúsiau
+                    </a>
+                </div><a class="menu-item" href="/about/" title=""><i class='fas fa-user fa-fw'></i>Siāukài</a><a class="menu-item" href="/posts/" title=""><i class='fas fa-archive fa-fw'></i>Bûnchiuⁿ</a><a class="menu-item" href="/tags/" title=""><i class='fas fa-tags fa-fw'></i>Phiauá</a><a class="menu-item" href="/categories/" title=""><i class='fas fa-folder fa-fw'></i>Hunlūi</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Ōaⁿ chútê">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="Soánte̍k gígiân">Tâibûn<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/drafts/php-note/" selected>Tâibûn</option></select>
+                </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="page single special"><h1 class="single-title animated pulse faster">[PHP] Note</h1><div class="content" id="content"><h2 id="array">Array</h2>
+<h3 id="清除陣列字串頭尾的多餘空白">清除陣列字串頭尾的多餘空白</h3>
+<p><code>$test = array_map('trim', $test);</code></p>
+<h3 id="清除陣列空值並重新排序-index">清除陣列空值並重新排序 index</h3>
+<p><code>array_values(array_filter($aArray));</code></p>
+<hr>
+<h3 id="清除陣列重複值">清除陣列重複值</h3>
+<p>使用 array_flip 和 array_keys 會比 array_unique 來的快速</p>
+<p>array_keys 會重新排序 index</p>
+<p>array_flip 則不會重新排序 index</p>
+<h4 id="範例">範例</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="nv">$test</span> <span class="o">=</span> <span class="k">Array</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">);</span>
+<span class="nx">print_r</span><span class="p">(</span><span class="nv">$test</span><span class="p">);</span>
+<span class="c1">// 使用前的陣列
+</span><span class="c1"></span><span class="k">Array</span>
+<span class="p">(</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">8</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">9</span>
+    <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">10</span>
+    <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">11</span>
+    <span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">10</span>
+    <span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">11</span>
+    <span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">8</span>
+    <span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">9</span>
+<span class="p">)</span>
+
+<span class="nv">$test</span> <span class="o">=</span> <span class="nx">array_keys</span><span class="p">(</span><span class="nx">array_flip</span><span class="p">(</span><span class="nv">$test</span><span class="p">));</span>
+<span class="nx">print_r</span><span class="p">(</span><span class="nv">$test</span><span class="p">);</span>
+<span class="c1">// 使用後的陣列
+</span><span class="c1"></span><span class="k">Array</span>
+<span class="p">(</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">8</span>
+    <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">9</span>
+    <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">10</span>
+    <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">11</span>
+<span class="p">)</span>
+
+<span class="nv">$test</span> <span class="o">=</span> <span class="nx">array_flip</span><span class="p">(</span><span class="nx">array_flip</span><span class="p">(</span><span class="nv">$test</span><span class="p">));</span>
+<span class="nx">print_r</span><span class="p">(</span><span class="nv">$test</span><span class="p">);</span>
+<span class="c1">// 使用後的陣列
+</span><span class="c1"></span><span class="k">Array</span>
+<span class="p">(</span>
+    <span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">8</span>
+    <span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">9</span>
+    <span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">10</span>
+    <span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">11</span>
+<span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="實做">實做</h4>
+<p>經過測試在 PHP &gt;= 7.0 的環境下
+比較 4 種刪除重複值的方式速度如下
+array_flip = array_values = array_keys &gt; array_unique
+而且前 3 者遠快於 array_unique</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="k">class</span> <span class="nc">testClass</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">ArrayUnique</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$test</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+        <span class="k">for</span> <span class="p">(</span><span class="nv">$run</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$run</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">;</span> <span class="nv">$run</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$test</span><span class="p">[]</span> <span class="o">=</span> <span class="nx">rand</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="nv">$time</span> <span class="o">=</span> <span class="nx">microtime</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="nv">$run</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$run</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="nv">$run</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$out</span> <span class="o">=</span> <span class="nx">array_unique</span><span class="p">(</span><span class="nv">$test</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="nv">$time</span> <span class="o">=</span> <span class="nx">microtime</span><span class="p">(</span><span class="k">true</span><span class="p">)</span> <span class="o">-</span> <span class="nv">$time</span><span class="p">;</span>
+        <span class="k">echo</span> <span class="s1">&#39;Array Unique: &#39;</span> <span class="o">.</span> <span class="nv">$time</span> <span class="o">.</span> <span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">KeysFlip</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$test</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+        <span class="k">for</span> <span class="p">(</span><span class="nv">$run</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$run</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">;</span> <span class="nv">$run</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$test</span><span class="p">[]</span> <span class="o">=</span> <span class="nx">rand</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="nv">$time</span> <span class="o">=</span> <span class="nx">microtime</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="nv">$run</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$run</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="nv">$run</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$out</span> <span class="o">=</span> <span class="nx">array_keys</span><span class="p">(</span><span class="nx">array_flip</span><span class="p">(</span><span class="nv">$test</span><span class="p">));</span>
+        <span class="p">}</span>
+
+        <span class="nv">$time</span> <span class="o">=</span> <span class="nx">microtime</span><span class="p">(</span><span class="k">true</span><span class="p">)</span> <span class="o">-</span> <span class="nv">$time</span><span class="p">;</span>
+        <span class="k">echo</span> <span class="s1">&#39;Keys Flip:    &#39;</span> <span class="o">.</span> <span class="nv">$time</span> <span class="o">.</span> <span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">FlipFlip</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$test</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+        <span class="k">for</span> <span class="p">(</span><span class="nv">$run</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$run</span> <span class="o">&lt;</span> <span class="mi">1000</span><span class="p">;</span> <span class="nv">$run</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$test</span><span class="p">[]</span> <span class="o">=</span> <span class="nx">rand</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="nv">$time</span> <span class="o">=</span> <span class="nx">microtime</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+
+        <span class="k">for</span> <span class="p">(</span><span class="nv">$run</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$run</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="nv">$run</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$out</span> <span class="o">=</span> <span class="nx">array_flip</span><span class="p">(</span><span class="nx">array_flip</span><span class="p">(</span><span class="nv">$test</span><span class="p">));</span>
+        <span class="p">}</span>
+
+        <span class="nv">$time</span> <span class="o">=</span> <span class="nx">microtime</span><span class="p">(</span><span class="k">true</span><span class="p">)</span> <span class="o">-</span> <span class="nv">$time</span><span class="p">;</span>
+        <span class="k">echo</span> <span class="s1">&#39;Flip Flip:    &#39;</span> <span class="o">.</span> <span class="nv">$time</span> <span class="o">.</span> <span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">main</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nx">self</span><span class="o">::</span><span class="na">ArrayUnique</span><span class="p">();</span> <span class="c1">// Keys Flip:    0.0010750293731689
+</span><span class="c1"></span>        <span class="nx">self</span><span class="o">::</span><span class="na">KeysFlip</span><span class="p">();</span>    <span class="c1">// Keys Flip:    0.0010750293731689
+</span><span class="c1"></span>        <span class="nx">self</span><span class="o">::</span><span class="na">FlipFlip</span><span class="p">();</span>    <span class="c1">// Flip Flip:    0.0010089874267578
+</span><span class="c1"></span>    <span class="p">}</span>
+
+<span class="p">}</span>
+<span class="nx">testClass</span><span class="o">::</span><span class="na">main</span><span class="p">();</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>reference :</p>
+<ul>
+<li><a href="https://iris-dog-cat.blogspot.tw/2014/12/php-arrayflip.html" target="_blank" rel="noopener noreffer">[PHP] 將陣列中重複的值刪除最好方法 array_flip (移除陣列中重複的值)</a></li>
+</ul>
+<hr>
+<h3 id="排序2維陣列">排序2維陣列</h3>
+<p>vArrayOrderBy允許多重排序</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="k">function</span> <span class="nf">vArrayOrderBy</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nv">$args</span> <span class="o">=</span> <span class="nx">func_get_args</span><span class="p">();</span>
+    <span class="nv">$data</span> <span class="o">=</span> <span class="nx">array_shift</span><span class="p">(</span><span class="nv">$args</span><span class="p">);</span>
+    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$args</span> <span class="k">as</span> <span class="nv">$n</span> <span class="o">=&gt;</span> <span class="nv">$field</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">is_string</span><span class="p">(</span><span class="nv">$field</span><span class="p">))</span> <span class="p">{</span>
+            <span class="nv">$tmp</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+            <span class="k">foreach</span> <span class="p">(</span><span class="nv">$data</span> <span class="k">as</span> <span class="nv">$key</span> <span class="o">=&gt;</span> <span class="nv">$row</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nv">$tmp</span><span class="p">[</span><span class="nv">$key</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$row</span><span class="p">[</span><span class="nv">$field</span><span class="p">];</span>
+            <span class="p">}</span>
+            <span class="nv">$args</span><span class="p">[</span><span class="nv">$n</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$tmp</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nv">$args</span><span class="p">[]</span> <span class="o">=</span> <span class="o">&amp;</span><span class="nv">$data</span><span class="p">;</span>
+    <span class="nx">call_user_func_array</span><span class="p">(</span><span class="s1">&#39;array_multisort&#39;</span><span class="p">,</span> <span class="nv">$args</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">array_pop</span><span class="p">(</span><span class="nv">$args</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// The sorted array is now in the return value of the function
+</span><span class="c1">// instead of being passed by reference.
+</span><span class="c1"></span>
+<span class="nv">$data</span><span class="p">[]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;volume&#39;</span> <span class="o">=&gt;</span> <span class="mi">67</span><span class="p">,</span> <span class="s1">&#39;edition&#39;</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">);</span>
+<span class="nv">$data</span><span class="p">[]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;volume&#39;</span> <span class="o">=&gt;</span> <span class="mi">86</span><span class="p">,</span> <span class="s1">&#39;edition&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">);</span>
+<span class="nv">$data</span><span class="p">[]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;volume&#39;</span> <span class="o">=&gt;</span> <span class="mi">85</span><span class="p">,</span> <span class="s1">&#39;edition&#39;</span> <span class="o">=&gt;</span> <span class="mi">6</span><span class="p">);</span>
+<span class="nv">$data</span><span class="p">[]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;volume&#39;</span> <span class="o">=&gt;</span> <span class="mi">98</span><span class="p">,</span> <span class="s1">&#39;edition&#39;</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">);</span>
+<span class="nv">$data</span><span class="p">[]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;volume&#39;</span> <span class="o">=&gt;</span> <span class="mi">86</span><span class="p">,</span> <span class="s1">&#39;edition&#39;</span> <span class="o">=&gt;</span> <span class="mi">6</span><span class="p">);</span>
+<span class="nv">$data</span><span class="p">[]</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;volume&#39;</span> <span class="o">=&gt;</span> <span class="mi">67</span><span class="p">,</span> <span class="s1">&#39;edition&#39;</span> <span class="o">=&gt;</span> <span class="mi">7</span><span class="p">);</span>
+
+<span class="c1">// Pass the array, followed by the column names and sort flags
+</span><span class="c1"></span><span class="nv">$sorted</span> <span class="o">=</span> <span class="nx">vArrayOrderBy</span><span class="p">(</span><span class="nv">$data</span><span class="p">,</span> <span class="s1">&#39;volume&#39;</span><span class="p">,</span> <span class="nx">SORT_DESC</span><span class="p">,</span> <span class="s1">&#39;edition&#39;</span><span class="p">,</span> <span class="nx">SORT_ASC</span><span class="p">);</span>
+<span class="nx">print_r</span><span class="p">(</span><span class="nv">$sorted</span><span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<h3 id="合併2維陣列">合併2維陣列</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="sd">/**
+</span><span class="sd"> * Merge 2D Array, use 2 foreach is non efficient,
+</span><span class="sd"> * but this way can merge multi row
+</span><span class="sd"> *
+</span><span class="sd"> * @param array $aArr1 must be 2D array
+</span><span class="sd"> * @param array $aArr2 must be 2D array
+</span><span class="sd"> * @param string $sKey comparison condition, both array has this key
+</span><span class="sd"> * @return array
+</span><span class="sd"> */</span>
+<span class="k">function</span> <span class="nf">a2DArrayMerge</span><span class="p">(</span><span class="nv">$aArr1</span> <span class="o">=</span> <span class="k">array</span><span class="p">(),</span> <span class="nv">$aArr2</span> <span class="o">=</span> <span class="k">array</span><span class="p">(),</span> <span class="nv">$sKey</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$resultArr</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$aArr1</span> <span class="k">as</span> <span class="nv">$bemerge</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$sKeyVal</span> <span class="o">=</span> <span class="nv">$bemerge</span><span class="p">[</span><span class="nv">$sKey</span><span class="p">];</span>
+        <span class="k">foreach</span> <span class="p">(</span><span class="nv">$aArr2</span> <span class="k">as</span> <span class="nv">$search</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nv">$search</span><span class="p">[</span><span class="nv">$sKey</span><span class="p">]</span> <span class="o">==</span> <span class="nv">$sKeyVal</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nv">$resultArr</span><span class="p">[]</span> <span class="o">=</span> <span class="nx">array_merge</span><span class="p">(</span><span class="nv">$search</span><span class="p">,</span><span class="nv">$bemerge</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nv">$resultArr</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="sd">/**
+</span><span class="sd"> * Merge 2D Array, use 1 foreach is more efficient,
+</span><span class="sd"> * but this way can only merge 1 row
+</span><span class="sd"> *
+</span><span class="sd"> * @param array $aArr1 must be 2D array base array
+</span><span class="sd"> * @param array $aArr2 must be 2D array add array
+</span><span class="sd"> * @param string $sAddKey  you want to add&#39;s $aArr2 key
+</span><span class="sd"> * @param string $sMainKey comparison condition, both array has this key
+</span><span class="sd"> * @return array
+</span><span class="sd"> */</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">aArrayMergeByMainKey</span><span class="p">(</span><span class="nv">$aArr1</span><span class="p">,</span> <span class="nv">$aArr2</span><span class="p">,</span> <span class="nv">$sAddKey</span><span class="p">,</span> <span class="nv">$sMainKey</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$aIndexValue</span> <span class="o">=</span> <span class="nx">array_column</span><span class="p">(</span><span class="nv">$aArr2</span><span class="p">,</span> <span class="s2">&#34;</span><span class="si">$sAddKey</span><span class="s2">&#34;</span><span class="p">,</span> <span class="s2">&#34;</span><span class="si">$sMainKey</span><span class="s2">&#34;</span><span class="p">);</span>
+    <span class="k">foreach</span><span class="p">(</span><span class="nv">$aArr1</span> <span class="k">as</span> <span class="nv">$key</span> <span class="o">=&gt;</span> <span class="nv">$item</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$exist</span> <span class="o">=</span> <span class="nx">array_key_exists</span><span class="p">(</span><span class="nv">$item</span><span class="p">[</span><span class="s2">&#34;</span><span class="si">$sMainKey</span><span class="s2">&#34;</span><span class="p">],</span> <span class="nv">$aIndexValue</span><span class="p">);</span>
+        <span class="nv">$aArr1</span><span class="p">[</span><span class="nv">$key</span><span class="p">][</span><span class="s2">&#34;</span><span class="si">$sAddKey</span><span class="s2">&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$exist</span> <span class="o">?</span> <span class="nv">$aIndexValue</span><span class="p">[</span><span class="nv">$item</span><span class="p">[</span><span class="s2">&#34;</span><span class="si">$sMainKey</span><span class="s2">&#34;</span><span class="p">]]</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nv">$aArr1</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="sd">/**
+</span><span class="sd"> * Merge 2D Array, use 1 foreach and recursiveis is more elegant,
+</span><span class="sd"> * this way dose&#39;n need any key,
+</span><span class="sd"> * it will directly replace repeat key. not fit in this case
+</span><span class="sd"> *
+</span><span class="sd"> * @param array $aArr1 must be 2D array
+</span><span class="sd"> * @param array $aArr2 must be 2D array
+</span><span class="sd"> * @return array
+</span><span class="sd"> */</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">aArrayMergeRecursive</span><span class="p">(</span><span class="o">&amp;</span><span class="nv">$aArr1</span><span class="p">,</span> <span class="o">&amp;</span><span class="nv">$aArr2</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$aMerged</span> <span class="o">=</span> <span class="nv">$aArr1</span><span class="p">;</span>
+    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$aArr2</span> <span class="k">as</span> <span class="nv">$key</span> <span class="o">=&gt;</span> <span class="o">&amp;</span><span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">is_array</span><span class="p">(</span><span class="nv">$value</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+            <span class="nx">isset</span><span class="p">(</span><span class="nv">$aMerged</span><span class="p">[</span><span class="nv">$key</span><span class="p">])</span> <span class="o">&amp;&amp;</span>
+            <span class="nx">is_array</span><span class="p">(</span><span class="nv">$aMerged</span><span class="p">[</span><span class="nv">$key</span><span class="p">]))</span> <span class="p">{</span>
+                <span class="nv">$aMerged</span><span class="p">[</span><span class="nv">$key</span><span class="p">]</span> <span class="o">=</span> <span class="nx">self</span><span class="o">::</span><span class="na">aArrayMergeRecursive</span><span class="p">(</span><span class="nv">$aMerged</span><span class="p">[</span><span class="nv">$key</span><span class="p">],</span> <span class="nv">$value</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nv">$aMerged</span><span class="p">[</span><span class="nv">$key</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$value</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nv">$aMerged</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="operator">Operator</h2>
+<h3 id="spaceship-operator">Spaceship Operator</h3>
+<p>PHP7 spaceship operator very helpful in sorting function callback</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="c1">// Just wanted to show off the beauty of PHPs spaceship operator in this use case.
+</span><span class="c1">// tested on PHP 7.1
+</span><span class="c1"></span><span class="nv">$a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">];</span>
+<span class="nv">$asc</span> <span class="o">=</span> <span class="nv">$desc</span> <span class="o">=</span> <span class="nv">$a</span><span class="p">;</span>
+<span class="nx">usort</span><span class="p">(</span><span class="nv">$asc</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">int</span> <span class="nv">$a</span><span class="p">,</span> <span class="nx">int</span> <span class="nv">$b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="p">(</span><span class="nv">$a</span> <span class="o">&lt;=&gt;</span> <span class="nv">$b</span><span class="p">);</span> <span class="p">});</span>
+<span class="nx">usort</span><span class="p">(</span><span class="nv">$desc</span><span class="p">,</span> <span class="k">function</span> <span class="p">(</span><span class="nx">int</span> <span class="nv">$a</span><span class="p">,</span> <span class="nx">int</span> <span class="nv">$b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="o">-</span><span class="p">(</span><span class="nv">$a</span> <span class="o">&lt;=&gt;</span> <span class="nv">$b</span><span class="p">);</span> <span class="p">});</span>
+<span class="nx">print_r</span><span class="p">([</span> <span class="nv">$a</span><span class="p">,</span> <span class="nv">$asc</span><span class="p">,</span> <span class="nv">$desc</span> <span class="p">]);</span>
+
+<span class="sd">/**
+</span><span class="sd"> * Usort with PHP7 Spaceship vs PHP5.6
+</span><span class="sd"> *
+</span><span class="sd"> */</span>
+<span class="c1">// spaceship operator
+</span><span class="c1"></span><span class="nx">usort</span><span class="p">(</span><span class="nv">$array</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$a</span><span class="p">,</span> <span class="nx">int</span> <span class="nv">$b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nv">$a</span> <span class="o">&lt;=&gt;</span> <span class="nv">$b</span><span class="p">;</span>
+<span class="p">});</span>
+
+<span class="c1">// ternary operator
+</span><span class="c1"></span><span class="nx">usort</span><span class="p">(</span><span class="nv">$array</span><span class="p">,</span> <span class="k">function</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$a</span><span class="p">,</span> <span class="nx">int</span> <span class="nv">$b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nv">$a</span> <span class="o">==</span> <span class="nv">$b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="p">(</span><span class="nv">$a</span> <span class="o">&lt;</span> <span class="nv">$b</span><span class="p">)</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">:</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Output</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="k">Array</span>
+<span class="p">(</span>
+    <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="k">Array</span>
+        <span class="p">(</span>
+            <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">2</span>
+            <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">1</span>
+            <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">3</span>
+            <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">6</span>
+            <span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">5</span>
+            <span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">4</span>
+            <span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">7</span>
+        <span class="p">)</span>
+
+    <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="k">Array</span>
+        <span class="p">(</span>
+            <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">1</span>
+            <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">2</span>
+            <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">3</span>
+            <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">4</span>
+            <span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">5</span>
+            <span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">6</span>
+            <span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">7</span>
+        <span class="p">)</span>
+
+    <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="k">Array</span>
+        <span class="p">(</span>
+            <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">7</span>
+            <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">6</span>
+            <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">5</span>
+            <span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">4</span>
+            <span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">3</span>
+            <span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">2</span>
+            <span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="mi">1</span>
+        <span class="p">)</span>
+
+<span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>reference :</p>
+<ul>
+<li><a href="https://secure.php.net/manual/en/function.usort.php#120344" target="_blank" rel="noopener noreffer">PHP: usort - Manual</a></li>
+</ul>
+<hr>
+<h3 id="null-coalescing-operator">Null Coalescing Operator</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="c1">// Example usage for: Null Coalesce Operator
+</span><span class="c1"></span><span class="nv">$action</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span> <span class="o">??</span> <span class="s1">&#39;default&#39;</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="ternary-operator">Ternary Operator</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="c1">// Example usage for: Ternary Operator
+</span><span class="c1"></span><span class="nv">$action</span> <span class="o">=</span> <span class="nx">isset</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">])</span> <span class="o">?</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span> <span class="o">:</span> <span class="s1">&#39;default&#39;</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="ifelse-statement">if/else Statement</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="k">if</span> <span class="p">(</span><span class="nx">isset</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]))</span> <span class="p">{</span>
+    <span class="nv">$action</span> <span class="o">=</span> <span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">];</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nv">$action</span> <span class="o">=</span> <span class="s1">&#39;default&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="nesting-null-coalescing-operator">Nesting null coalescing operator</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="c1">// Please note that the null coalescing operator allows for simple nesting:
+</span><span class="c1"></span>
+<span class="nv">$foo</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span><span class="o">****</span>
+<span class="nv">$bar</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
+<span class="nv">$baz</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nv">$qux</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+<span class="k">echo</span> <span class="nv">$foo</span> <span class="o">??</span> <span class="nv">$bar</span> <span class="o">??</span> <span class="nv">$baz</span> <span class="o">??</span> <span class="nv">$qux</span><span class="p">;</span> <span class="c1">// outputs 1
+</span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="security">Security</h2>
+<h3 id="password-hash--salt">Password Hash &amp; Salt</h3>
+<p>The right way to hash passwords in PHP</p>
+<p>require : PHP version &gt;= 5.5</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="nv">$hash</span> <span class="o">=</span> <span class="nx">password_hash</span><span class="p">(</span><span class="s2">&#34;secretcode&#34;</span><span class="p">,</span> <span class="nx">PASSWORD_DEFAULT</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$sPasswordVerify</span> <span class="o">=</span> <span class="nx">password_verify</span><span class="p">(</span><span class="s1">&#39;secretcode&#39;</span><span class="p">,</span> <span class="nv">$hash</span><span class="p">)</span> <span class="o">?</span> <span class="s1">&#39;Password is valid!&#39;</span> <span class="o">:</span> <span class="s1">&#39;Invalid password.&#39;</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>reference :</p>
+<ul>
+<li><a href="https://securepasswords.info/php" target="_blank" rel="noopener noreffer">securepasswords.info - php</a></li>
+</ul>
+<hr>
+<h2 id="comparisons">Comparisons</h2>
+<h3 id="comparisons-of-x-with-php-functions">Comparisons of $x with PHP functions</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../images/PHP-Note/comparisons-with-$x-functions.png"
+        data-srcset="../images/PHP-Note/comparisons-with-$x-functions.png, ../images/PHP-Note/comparisons-with-$x-functions.png 1.5x, ../images/PHP-Note/comparisons-with-$x-functions.png 2x"
+        data-sizes="auto"
+        alt="../images/PHP-Note/comparisons-with-$x-functions.png"
+        title="../images/PHP-Note/comparisons-with-$x-functions.png" /></p>
+<p>if ($x) 和 empty($x) 是一組</p>
+<p>isset($x) 和 is_null($x) 是一組</p>
+<h3 id="loose-comparisons-with-">Loose comparisons with ==</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../images/PHP-Note/comparisons-with-==.png"
+        data-srcset="../images/PHP-Note/comparisons-with-==.png, ../images/PHP-Note/comparisons-with-==.png 1.5x, ../images/PHP-Note/comparisons-with-==.png 2x"
+        data-sizes="auto"
+        alt="../images/PHP-Note/comparisons-with-==.png"
+        title="../images/PHP-Note/comparisons-with-==.png" /></p>
+<h3 id="strict-comparisons-with-">Strict comparisons with ===</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="../images/PHP-Note/comparisons-with-===.png"
+        data-srcset="../images/PHP-Note/comparisons-with-===.png, ../images/PHP-Note/comparisons-with-===.png 1.5x, ../images/PHP-Note/comparisons-with-===.png 2x"
+        data-sizes="auto"
+        alt="../images/PHP-Note/comparisons-with-===.png"
+        title="../images/PHP-Note/comparisons-with-===.png" /></p>
+<p>reference :</p>
+<ul>
+<li><a href="https://secure.php.net/manual/en/types.comparisons.php" target="_blank" rel="noopener noreffer">PHP: PHP type comparison tables - Manual</a></li>
+</ul>
+<hr>
+<h2 id="control-structures">Control Structures</h2>
+<h3 id="break--continue">Break / Continue</h3>
+<p>Break / Continue 可以結束當下的 for/foreach/while/do while/switch 迴圈</p>
+<p>要注意的是，不同於其他語言，對 PHP 來說，Switch 是可以使用 Continue 做跳出的一種迴圈結構</p>
+<blockquote>
+<p>Break / Continue 後面可以接數字參數來決定要跳過第幾層迴圈。</p>
+</blockquote>
+<h4 id="範例-1">範例</h4>
+<p>如果想要在迴圈中的 Switch 中跳出到下一層迴圈的話，</p>
+<p>使用 Continue 的話是無法跳出迴圈的，要使用 Continue 2 ，</p>
+<p>如果要再多一層迴圈要跳出的話就是 Continue 3。 依此類推</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="nv">$aNumbers</span> <span class="o">=</span> <span class="nx">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+<span class="nv">$aLetters</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;h&#39;</span><span class="p">,</span> <span class="s1">&#39;i&#39;</span><span class="p">);</span>
+
+<span class="nv">$i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$aLetters</span> <span class="k">as</span> <span class="nv">$sLetter</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">++</span><span class="nv">$i</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="nv">$sLetter</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$aNumbers</span> <span class="k">as</span> <span class="nv">$iNumber</span><span class="p">)</span> <span class="p">{</span>
+        <span class="o">++</span><span class="nv">$i</span><span class="p">;</span>
+        <span class="k">switch</span> <span class="p">(</span><span class="nv">$sLetter</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">case</span> <span class="s1">&#39;d&#39;</span><span class="o">:</span>
+                <span class="c1">// So here I want to &#39;break;&#39; out of the switch, &#39;break;&#39;
+</span><span class="c1"></span>                <span class="c1">// out of the $aNumbers loop,
+</span><span class="c1"></span>                <span class="c1">// and then &#39;continue;&#39; in the $aLetters loop.
+</span><span class="c1"></span>                <span class="c1">// go to the end of this switch, numbers loop iteration,
+</span><span class="c1"></span>                <span class="c1">// letters loop iteration
+</span><span class="c1"></span>                <span class="k">continue</span> <span class="mi">3</span><span class="p">;</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="s1">&#39;f&#39;</span><span class="o">:</span>
+                <span class="c1">// skip to the end of the switch control AND
+</span><span class="c1"></span>                <span class="c1">// the current iteration of the number&#39;s loop,
+</span><span class="c1"></span>                <span class="c1">// but still process the letter&#39;s loop
+</span><span class="c1"></span>                <span class="k">continue</span> <span class="mi">2</span><span class="p">;</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="s1">&#39;h&#39;</span><span class="o">:</span>
+                <span class="c1">// would be more appropriate to break the number&#39;s loop
+</span><span class="c1"></span>                <span class="k">break</span> <span class="mi">2</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="c1">// Still in the number&#39;s loop
+</span><span class="c1"></span>        <span class="k">echo</span> <span class="s2">&#34; </span><span class="si">$iNumber</span><span class="s2"> &#34;</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">// Stuff that should be done if the &#39;letter&#39; is not &#39;d&#39;.
+</span><span class="c1"></span>    <span class="k">echo</span> <span class="s2">&#34; </span><span class="si">$i</span><span class="s2"> &#34;</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>回傳結果</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="nx">a</span>
+ <span class="mi">1</span>  <span class="mi">2</span>  <span class="mi">3</span>  <span class="mi">4</span>  <span class="mi">5</span>  <span class="mi">6</span>  <span class="mi">7</span>  <span class="mi">8</span>  <span class="mi">9</span>  <span class="mi">10</span>  <span class="mi">11</span>
+<span class="nx">b</span>
+ <span class="mi">1</span>  <span class="mi">2</span>  <span class="mi">3</span>  <span class="mi">4</span>  <span class="mi">5</span>  <span class="mi">6</span>  <span class="mi">7</span>  <span class="mi">8</span>  <span class="mi">9</span>  <span class="mi">10</span>  <span class="mi">22</span>
+<span class="nx">c</span>
+ <span class="mi">1</span>  <span class="mi">2</span>  <span class="mi">3</span>  <span class="mi">4</span>  <span class="mi">5</span>  <span class="mi">6</span>  <span class="mi">7</span>  <span class="mi">8</span>  <span class="mi">9</span>  <span class="mi">10</span>  <span class="mi">33</span>
+<span class="nx">d</span>
+<span class="nx">e</span>
+ <span class="mi">1</span>  <span class="mi">2</span>  <span class="mi">3</span>  <span class="mi">4</span>  <span class="mi">5</span>  <span class="mi">6</span>  <span class="mi">7</span>  <span class="mi">8</span>  <span class="mi">9</span>  <span class="mi">10</span>  <span class="mi">46</span>
+<span class="nx">f</span>
+ <span class="mi">57</span>
+<span class="nx">g</span>
+ <span class="mi">1</span>  <span class="mi">2</span>  <span class="mi">3</span>  <span class="mi">4</span>  <span class="mi">5</span>  <span class="mi">6</span>  <span class="mi">7</span>  <span class="mi">8</span>  <span class="mi">9</span>  <span class="mi">10</span>  <span class="mi">68</span>
+<span class="nx">h</span>
+ <span class="mi">70</span>
+<span class="nx">i</span>
+ <span class="mi">1</span>  <span class="mi">2</span>  <span class="mi">3</span>  <span class="mi">4</span>  <span class="mi">5</span>  <span class="mi">6</span>  <span class="mi">7</span>  <span class="mi">8</span>  <span class="mi">9</span>  <span class="mi">10</span>  <span class="mi">81</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>reference :</p>
+<ul>
+<li><a href="https://secure.php.net/manual/en/control-structures.continue.php" target="_blank" rel="noopener noreffer">PHP: continue - Manual</a></li>
+<li><a href="https://stackoverflow.com/questions/10824770/generate-array-of-random-unique-numbers-in-php" target="_blank" rel="noopener noreffer">Generate array of random unique numbers in PHP - Stack Overflow</a></li>
+</ul>
+</div></div></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">· An independent, 100% carbon neutral site that doesn't track you ·</div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2017 - 2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="https://git.io/watain666" target="_blank">TiâuÛi Lâu</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Tńg--khì koânténg">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="Khòaⁿ lâuōe">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/css/lightgallery.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.8/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery.js@1.2.0/dist/js/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-thumbnail.js@1.2.0/dist/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lg-zoom.js@1.2.0/dist/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Khoppih khì ka tah phō͘á","maxShownLines":10},"comment":{},"lightGallery":{"actualSize":false,"exThumbImage":"data-thumbnail","hideBarsDelay":2000,"selector":".lightgallery","speed":400,"thumbContHeight":80,"thumbWidth":80,"thumbnail":true},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":5,"noResultsFound":"Bô chhiau tio̍h","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.09729ab43fbb7b49c065c597d41bb70983c7852ea77794a00b8f78099b049b43.js" integrity="sha256-CXKatD&#43;7e0nAZcWX1Bu3CYPHhS6nd5SgC494CZsEm0M="></script></body>
+</html>
