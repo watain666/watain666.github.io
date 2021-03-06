@@ -1,7 +1,7 @@
 # Editor introduction VS Code & Note
 
 
-由於公司電腦效能不夠，Php Storm 的[~~素肚~~]^(速度)實在是太慢了
+由於公司電腦效能不夠，Php Storm 的速度實在是太慢了
 所以我就拋棄 [Php Storm](https://www.jetbrains.com/phpstorm/) 奔向 [VS Code](https://code.visualstudio.com/) 的懷抱了。
 
 微軟這次真的是佛心來著，以往死愛錢微軟這次開發了一款免錢又非常好用的跨平台編輯器，不管你是用 Linux 還是用 macOS 的非 Windows 使用者都可以無痛使用!!

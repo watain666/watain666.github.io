@@ -14,7 +14,7 @@ The Zend Engine API version 320151012 which is installed, is newer.
 ```
 
 浪費了一堆時間，最後發現只是因為我的電腦裡有多個不同版本的 PHP...
-因此整理一篇筆記，看能不能幫到[需要幫忙的人]^(未來的我)。
+因此整理一篇筆記，看能不能幫到{需要幫忙的人|未來的我}。
 
 ## 開始安裝
 
@@ -35,7 +35,7 @@ php -i > ~/php-info.txt
 打開剛才產生的 php-info.txt，將內容複製到 [Xdebug Wizard](https://xdebug.org/wizard.php) 並點選 Analyse my phpinfo() output 按鈕
 ![](wizard_button.png)
 
-Xdebug Wizard 這個工具可以解析你的PHP版本、Zend API 版本諸如此類安裝所需要的資訊。
+Xdebug Wizard 這個工具可以解析你的 PHP 版本、Zend API 版本諸如此類安裝所需要的資訊。
 
 點按鈕後你會得到這樣的說明
 
@@ -94,7 +94,7 @@ cd xdebug-2.5.3
 
 那 xampp 的 phpize 在哪呢？
 
-如果你不知道 xampp 的 phpize 在哪裡可以問問 [神奇海螺]^(whereis)
+如果你不知道 xampp 的 phpize 在哪裡可以問問 {神奇海螺|whereis}
 
 ```bash
 whereis phpize
@@ -130,7 +130,7 @@ whereis phpize
 
 5. configure 它並帶上 php-config 路徑
 
-如果你不知道 php-config 路徑一樣問 [神奇海螺]^(whereis)
+如果你不知道 php-config 路徑一樣問 {神奇海螺|whereis}
 
 ```bash
 whereis php-config
