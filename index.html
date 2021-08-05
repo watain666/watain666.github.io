@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="tai">
     <head>
-	<meta name="generator" content="Hugo 0.81.0" />
+	<meta name="generator" content="Hugo 0.87.0" />
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
@@ -38,7 +38,7 @@
             <a href="/" title="That fooling fools ain&#39;t fooling facts.">That fooling fools ain&#39;t fooling facts.</a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/about/"><i class='fas fa-user fa-fw'></i> Siāukài </a><a class="menu-item" href="/posts/"><i class='fas fa-archive fa-fw'></i> Bûnchiuⁿ </a><a class="menu-item" href="/tags/"><i class='fas fa-tags fa-fw'></i> Phiauá </a><a class="menu-item" href="/categories/"><i class='fas fa-folder fa-fw'></i> Hunlūi </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="Soánte̍k gígiân">Tâibûn<i class="fas fa-chevron-right fa-fw"></i>
+            <div class="menu-inner"><a class="menu-item" href="/about/"><i class='fas fa-user fa-fw'></i> Siāukài </a><a class="menu-item" href="/posts/"><i class='fas fa-archive fa-fw'></i> Bûnchiuⁿ </a><a class="menu-item" href="/tags/"><i class='fas fa-tags fa-fw'></i> Phiauá </a><a class="menu-item" href="/categories/"><i class='fas fa-folder fa-fw'></i> Hunlūi </a><a class="menu-item" href="/tools/"><i class='fas fa-tools fa-fw'></i> Kesi </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="Soánte̍k gígiân">Tâibûn<i class="fas fa-chevron-right fa-fw"></i>
                         <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/" selected>Tâibûn</option><option value="/zh-tw/">中文</option></select>
                     </a><span class="menu-item search" id="search-desktop">
                         <input type="text" placeholder="Type something..." id="search-input-desktop">
@@ -83,7 +83,7 @@
                     <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
                         Chhúsiau
                     </a>
-                </div><a class="menu-item" href="/about/" title=""><i class='fas fa-user fa-fw'></i>Siāukài</a><a class="menu-item" href="/posts/" title=""><i class='fas fa-archive fa-fw'></i>Bûnchiuⁿ</a><a class="menu-item" href="/tags/" title=""><i class='fas fa-tags fa-fw'></i>Phiauá</a><a class="menu-item" href="/categories/" title=""><i class='fas fa-folder fa-fw'></i>Hunlūi</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Ōaⁿ chútê">
+                </div><a class="menu-item" href="/about/" title=""><i class='fas fa-user fa-fw'></i>Siāukài</a><a class="menu-item" href="/posts/" title=""><i class='fas fa-archive fa-fw'></i>Bûnchiuⁿ</a><a class="menu-item" href="/tags/" title=""><i class='fas fa-tags fa-fw'></i>Phiauá</a><a class="menu-item" href="/categories/" title=""><i class='fas fa-folder fa-fw'></i>Hunlūi</a><a class="menu-item" href="/tools/" title=""><i class='fas fa-tools fa-fw'></i>Kesi</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Ōaⁿ chútê">
                 <i class="fas fa-adjust fa-fw"></i>
             </a><a href="javascript:void(0);" class="menu-item" title="Soánte̍k gígiân">Tâibûn<i class="fas fa-chevron-right fa-fw"></i>
                     <select class="language-select" onchange="location = this.value;"><option value="/" selected>Tâibûn</option><option value="/zh-tw/">中文</option></select>
@@ -97,14 +97,21 @@
     <div id="search-dropdown-mobile"></div>
 </div>
 <main class="main">
-                <div class="container"><div class="page home" posts><div class="home-profile"><div class="home-avatar"><a href="/about/" title="Siāukài"><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/images/avatar/draw_490.png"
-        data-srcset="/images/avatar/draw_490.png, /images/avatar/draw_490.png 1.5x, /images/avatar/draw_490.png 2x"
-        data-sizes="auto"
-        alt="/images/avatar/draw_490.png"
-        title="/images/avatar/draw_490.png" /></a></div><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2><div class="links"><a href="https://github.com/watain666" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github-square fa-fw"></i></a><a href="https://twitter.com/TiauWeed" title="Twitter" target="_blank" rel="noopener noreffer me"><i class="fab fa-twitter-square fa-fw"></i></a><a href="https://www.instagram.com/doordie666" title="Instagram" target="_blank" rel="noopener noreffer me"><i class="fab fa-instagram-square fa-fw"></i></a><a href="https://facebook.com/watain666" title="facebook" target="_blank" rel="noopener noreffer me"><i class="fab fa-facebook-square fa-fw"></i></a></div></div>
+                <div class="container"><div class="page home" posts><div class="home-profile"><div class="home-avatar"><div class="box">
+    <div class="activator white"></div>
+    <div class="activator black"></div>
+    <div class="drop"></div>
+    <svg class="cats" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" height="300" width="300">
+        <path d="M198.63 43.54c-8.535-4.018 3.727 22.035-12.55 45.9-20.702 30.36-48.977 21.085-41.787 33.538 6.11 10.582 14.963 5.18 22.04 1.094 14.174-8.184 27.137-10.15 28.113 3.987 1.042 15.096-20.733 19.503-38.7 21.456-14.98 1.746-26.072.598-39.257 7.506-7.503 3.93-12.945 8.577-11.272 16.88 1.543 7.663 6.38 9.685 14.245 8.033 14.377-3.02 29.986-17.01 35.77-5.653 5.19 10.192-17.612 11.026-28.038 18.733-13.19 9.75-18.697 22.952-23.197 36.583-1.806 5.473-6.094 20.647-2.37 25.047 11.313 2.326 21.947-8.24 31.515-4.824 9.426 3.366 18.753 8.822 24.982 16.656 6.99 8.79.88 29.34 11.896 31.524 91.172-57.992 104.09-103.495 104.09-139.778 0-46.43-24.75-92.793-75.48-116.68z" fill="#f2f2f2" />
+        <path d="M101.38 256.46c8.535 4.018-3.726-22.035 12.55-45.9 20.703-30.36 48.978-21.085 41.788-33.538-6.11-10.582-14.963-5.18-22.04-1.094-14.174 8.184-27.138 10.148-28.113-3.987-1.042-15.096 20.732-19.503 38.7-21.456 14.978-1.746 26.072-.598 39.257-7.506 7.502-3.93 12.943-8.578 11.27-16.88-1.543-7.663-6.38-9.685-14.244-8.033-14.378 3.02-29.987 17.01-35.77 5.653-5.19-10.192 17.612-11.026 28.037-18.733 13.19-9.75 18.697-22.952 23.197-36.583 1.807-5.473 6.094-20.647 2.372-25.047-11.314-2.326-21.948 8.24-31.517 4.824-9.425-3.366-18.752-8.822-24.98-16.656-6.992-8.79-.88-29.34-11.897-31.524C38.82 57.99 25.9 103.495 25.9 139.778c0 46.43 24.75 92.793 75.48 116.68z" fill="#1a1a1a" />
+        <path d="M110.677 57.635s-1.826 3.912 2.206 7.82c4.032 3.91 7.86.79 7.86.79M143.635 85.076s-1.826 3.912 2.206 7.82c4.032 3.91 7.86.79 7.86.79" fill="none" stroke="#ececec" stroke-width="6.774" stroke-linecap="round" />
+        <path d="M104.733 80.926s3.077 8.615 6.49 10.237c3.416 1.623 10.488-1.248 10.488-1.248l3.996-4.744 5.243-.25-6.742-3.494 1.498 3.745-4.245 5.494s.47 8.58 2.997 10.736c2.53 2.157 8.74 1 8.74 1" fill="none" stroke="#ececec" stroke-width="6.774" stroke-linecap="round" stroke-linejoin="round" />
+        <g stroke="#1a1a1a" fill="none" stroke-width="6" stroke-linecap="round">
+            <path d="M189.063 252.215s1.826-3.912-2.206-7.82c-4.032-3.91-7.86-.79-7.86-.79M156.105 224.773s1.826-3.91-2.206-7.82c-4.033-3.91-7.862-.79-7.862-.79" stroke-width="6.77406" />
+            <path d="M195.007 228.923s-3.077-8.614-6.492-10.236c-3.414-1.623-10.486 1.248-10.486 1.248l-3.996 4.744-5.243.25 6.742 3.494-1.498-3.745 4.245-5.494s-.47-8.58-2.997-10.736c-2.53-2.157-8.74-1-8.74-1" stroke-linejoin="round" stroke-width="6.77406" />
+        </g>
+    </svg>
+  </div></div><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2><div class="links"><a href="https://github.com/watain666" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github-square fa-fw"></i></a><a href="https://twitter.com/TiauWeed" title="Twitter" target="_blank" rel="noopener noreffer me"><i class="fab fa-twitter-square fa-fw"></i></a><a href="https://www.instagram.com/doordie666" title="Instagram" target="_blank" rel="noopener noreffer me"><i class="fab fa-instagram-square fa-fw"></i></a><a href="https://facebook.com/watain666" title="facebook" target="_blank" rel="noopener noreffer me"><i class="fab fa-facebook-square fa-fw"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><div class="featured-image-preview">
             <a href="/chhoe-taigi-shortcuts/"><img
         class="lazyload"

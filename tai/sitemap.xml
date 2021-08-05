@@ -2,6 +2,15 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
+            <loc>https://watain666.github.io/tools/</loc><lastmod>2020-12-12T12:12:12&#43;12:12</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
+                        rel="alternate"
+                        hreflang="zh-tw"
+                        href="https://watain666.github.io/zh-tw/tools/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="tai"
+                    href="https://watain666.github.io/tools/"
+                    /></url><url>
             <loc>https://watain666.github.io/about/</loc><lastmod>2020-12-12T12:12:12&#43;12:12</lastmod><changefreq>weekly</changefreq><priority>0.5</priority><xhtml:link
                         rel="alternate"
                         hreflang="zh-tw"
