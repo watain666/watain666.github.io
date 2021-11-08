@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: watain666.github.io
+Token: 12e94f886e31455a66fd00be26ad4b9f691ae10a6becba7d5f03fff1ea14cdf0
