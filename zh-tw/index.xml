@@ -1,54 +1,54 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>That fooling fools ain&#39;t fooling facts.</title>
-        <link>https://watain666.github.io/zh-tw/</link>
-        <description>測試</description>
+        <title>Always Indigo</title>
+        <link>https://tiaui.co/zh-tw/</link>
+        <description>Chiahsī Góa ê kisu̍t Blog, khǹg chi̍tkóa Góa Góa ū chhùbī kap Góa chò ê mi̍hkiāⁿ ê só͘chāi.</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>tiaui@pm.me (TiâuÛi Lâu)</managingEditor>
             <webMaster>tiaui@pm.me (TiâuÛi Lâu)</webMaster><lastBuildDate>Thu, 22 Nov 2018 00:00:00 &#43;0000</lastBuildDate>
-            <atom:link href="https://watain666.github.io/zh-tw/index.xml" rel="self" type="application/rss+xml" />
+            <atom:link href="https://tiaui.co/zh-tw/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>Chhōe Tâigí 捷徑</title>
-    <link>https://watain666.github.io/zh-tw/chhoe-taigi-shortcuts/</link>
+    <link>https://tiaui.co/zh-tw/chhoe-taigi-shortcuts/</link>
     <pubDate>Thu, 22 Nov 2018 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://watain666.github.io/zh-tw/chhoe-taigi-shortcuts/</guid>
+    <guid>https://tiaui.co/zh-tw/chhoe-taigi-shortcuts/</guid>
     <description><![CDATA[<p><a href="https://chhoe.taigi.info/" target="_blank" rel="noopener noreffer">Chhōe Tâigí</a> 是一個非常好用的台語辭典網站</p>
 <p>不過在網路上看到不會的字就要打開網站，一個字一個字的去查，實在是很麻煩</p>]]></description>
 </item><item>
     <title>Chhōe Tâigí Chrome Extensions</title>
-    <link>https://watain666.github.io/zh-tw/chhoe-taigi-chrome-extensions/</link>
+    <link>https://tiaui.co/zh-tw/chhoe-taigi-chrome-extensions/</link>
     <pubDate>Tue, 20 Nov 2018 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://watain666.github.io/zh-tw/chhoe-taigi-chrome-extensions/</guid>
+    <guid>https://tiaui.co/zh-tw/chhoe-taigi-chrome-extensions/</guid>
     <description><![CDATA[<p><a href="https://chhoe.taigi.info/" target="_blank" rel="noopener noreffer">Chhōe Tâigí</a> 是一個非常好用的台語辭典網站</p>
 <p>不過在網路上看到不會的字就要打開網站，一個字一個字的去查，實在是很麻煩</p>]]></description>
 </item><item>
-    <title>[Applications] Best Git Client GitKraken</title>
-    <link>https://watain666.github.io/zh-tw/best-git-client-gitkraken/</link>
+    <title>Best Git Client GitKraken</title>
+    <link>https://tiaui.co/zh-tw/best-git-client-gitkraken/</link>
     <pubDate>Fri, 05 Oct 2018 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://watain666.github.io/zh-tw/best-git-client-gitkraken/</guid>
+    <guid>https://tiaui.co/zh-tw/best-git-client-gitkraken/</guid>
     <description><![CDATA[今天要來介紹一款功能強大又美觀的 Git Client 叫 GitKraken 是說其實我近幾年挑選軟體的原則很簡單，漂亮/開源/跨平台 以上 3 樣有中 2 樣我就會想裝來用用看了 而且 GitKraken 的]]></description>
 </item><item>
     <title>Editor introduction VS Code &amp; Note</title>
-    <link>https://watain666.github.io/zh-tw/editor-introduction-vs-code-and-note/</link>
+    <link>https://tiaui.co/zh-tw/editor-introduction-vs-code-and-note/</link>
     <pubDate>Tue, 08 Aug 2017 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://watain666.github.io/zh-tw/editor-introduction-vs-code-and-note/</guid>
+    <guid>https://tiaui.co/zh-tw/editor-introduction-vs-code-and-note/</guid>
     <description><![CDATA[由於公司電腦效能不夠，Php Storm 的速度實在是太慢了 所以我就拋棄 Php Storm 奔向 VS Code 的懷抱了。 微軟這次真的是佛心來著，以往死愛錢微軟這次開發了一款免錢又]]></description>
 </item><item>
     <title>PHP Upgrade 5.6 to 7.1 got session_start fail</title>
-    <link>https://watain666.github.io/zh-tw/php-upgrade-5.6-to-7.1-got-session_start-fail/</link>
+    <link>https://tiaui.co/zh-tw/php-upgrade-5.6-to-7.1-got-session_start-fail/</link>
     <pubDate>Thu, 03 Aug 2017 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://watain666.github.io/zh-tw/php-upgrade-5.6-to-7.1-got-session_start-fail/</guid>
+    <guid>https://tiaui.co/zh-tw/php-upgrade-5.6-to-7.1-got-session_start-fail/</guid>
     <description><![CDATA[其實這問題碰到一陣子了，從我還不會用 xdebug 就碰到了， 用 xdebug 前的情況是我進後台的登入頁 打完帳號密碼點登入完全沒反應，只會繼續跳轉回登入頁 沒有彈出任何]]></description>
 </item><item>
     <title>Ubuntu installing Xdebug for PHP7</title>
-    <link>https://watain666.github.io/zh-tw/ubuntu-16.04-installing-xdebug-for-php7/</link>
+    <link>https://tiaui.co/zh-tw/ubuntu-16.04-installing-xdebug-for-php7/</link>
     <pubDate>Wed, 24 May 2017 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://watain666.github.io/zh-tw/ubuntu-16.04-installing-xdebug-for-php7/</guid>
+    <guid>https://tiaui.co/zh-tw/ubuntu-16.04-installing-xdebug-for-php7/</guid>
     <description><![CDATA[以前在學校學 Java 的時候，老師讓我們使用 Eclipse 這款 IDE 來開發，並一再強調使用 IDE 的 debug 功能和看 error message 有多重要，除此之外，一直以來寫我寫 code 都是用 Sublime / Atom 這種輕量]]></description>
 </item></channel>
 </rss>

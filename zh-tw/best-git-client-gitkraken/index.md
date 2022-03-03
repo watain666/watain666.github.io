@@ -1,8 +1,5 @@
-# [Applications] Best Git Client GitKraken
+# Best Git Client GitKraken
 
-
-
-![](/images/Best-Git-Client-GitKraken/gk-merge-edit.gif)
 
 今天要來介紹一款功能強大又美觀的 Git Client 叫 [GitKraken](https://www.gitkraken.com/)
 

@@ -7,6 +7,6 @@
 
 這邊是我的技術部落格，是放一些我做的和我有興趣的東西的地方。
 
-若有事可透過  [信箱 :(far fa-envelope fa-fw):](mailto:watain666666@gmail.com) 聯繫。
+若有事可透過  [:(far fa-envelope fa-fw): 信箱](mailto:watain666666@gmail.com) 聯繫。
 
 
